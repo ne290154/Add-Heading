@@ -70,9 +70,20 @@ define(function (require, exports, module) {
       heading_text = heading_text.slice(tab_count);
     }
     
-    // Heading generation
+    // Toggle Heading
+    var HDpre = cmt_prefix + Heading_left;
+    var HDsuf = Heading_right + cmt_suffix;
+    if(heading_text.indexOf(HDpre) === -1 && heading_text.indexOf(HDsuf) === -1){
+      
+      // Generate Heading
+      var HDstr = HDpre + heading_text + HDsuf;
+    }else{
+      
+      // Delete Heading
+      var HDstr = heading_text.replace(HDpre, "").replace(HDsuf, "");
+    }
     currentDoc.batchOperation(function(){
-      currentDoc.replaceRange(cmt_prefix + Heading_left + heading_text + Heading_right + cmt_suffix, start_pos, end_pos);
+      currentDoc.replaceRange(HDstr, start_pos, end_pos);
     });
   }
   /*=== Extension - Common ===*/

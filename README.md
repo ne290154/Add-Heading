@@ -2,10 +2,13 @@
 This extension adds a heading to selected line.
 
 
+Press the shortcut to convert the string to a heading.
+
+
 Use any languages in the **Brackets 1.14**.
 
 ## How to use
-Click the line you want to add a heading.
+Click the line in the cord you want to add a heading.
 
 
 Both selected text and unselected text are acceptable.
