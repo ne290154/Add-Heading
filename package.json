@@ -2,8 +2,8 @@
   "name": "fk.addheading",
   "title": "Add Heading",
   "description": "This extension adds a heading to selected line. Use any languages in the Brackets 1.14.",
-  "homepage": "https://github.com/ne290154",
-  "version": "1.0.0",
+  "homepage": "https://github.com/ne290154/Add-Heading",
+  "version": "1.0.1",
   "author": "FK",
   "license": "MIT",
   "engines": {

@@ -11,12 +11,12 @@ define(function (require, exports, module) {
   var CommandManager = brackets.getModule("command/CommandManager"),
   KeyBindingManager = brackets.getModule("command/KeyBindingManager"),
   AppInit = brackets.getModule("utils/AppInit"),
-  Menus = brackets.getModule("command/Menus");
-  var DocumentManager = brackets.getModule("document/DocumentManager");
-  var EditorManager = brackets.getModule("editor/EditorManager");
-  var LanguageManager = brackets.getModule("language/LanguageManager");
+  Menus = brackets.getModule("command/Menus"),
+  DocumentManager = brackets.getModule("document/DocumentManager"),
+  EditorManager = brackets.getModule("editor/EditorManager"),
+  LanguageManager = brackets.getModule("language/LanguageManager"),
+  HTMLUtils = brackets.getModule("language/HTMLUtils");
   /*=*=*=*=*=*| Module |=*=*=*=*=*/
-  
   
   /*=*=*=*=*=*| Extension |=*=*=*=*=*/
   /*=== Extension - Common ===*/
@@ -24,7 +24,7 @@ define(function (require, exports, module) {
     var currentDoc = DocumentManager.getCurrentDocument();
     var editor = EditorManager.getCurrentFullEditor();
     
-    //Comment by the Language
+    
     var language = currentDoc.getLanguage();
     var cmt_prefix = language.getBlockCommentPrefix();
     var cmt_suffix = language.getBlockCommentSuffix();
@@ -41,6 +41,7 @@ define(function (require, exports, module) {
     }
     
     var pos = editor.getCursorPos();
+    // var tag_name = HTMLUtils.getTagInfo(editor, pos).tagName;
     
     // Heading shaping
     var selectedText = editor.getSelectedText();
@@ -81,6 +82,7 @@ define(function (require, exports, module) {
       
       // Delete Heading
       var HDstr = heading_text.replace(HDpre, "").replace(HDsuf, "");
+
     }
     currentDoc.batchOperation(function(){
       currentDoc.replaceRange(HDstr, start_pos, end_pos);
